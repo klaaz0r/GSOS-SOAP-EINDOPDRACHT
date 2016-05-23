@@ -1,0 +1,94 @@
+<definitions name="IbanService" xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://gsos.fnt.hu.nl/"
+	targetNamespace="http://gsos.fnt.hu.nl/">
+
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://gsos.fnt.hu.nl/"
+				schemaLocation="createibanrequest.xsd" />
+			<xsd:import namespace="http://gsos.fnt.hu.nl/"
+				schemaLocation="createibanresponse.xsd" />
+			<xsd:import namespace="http://gsos.fnt.hu.nl/"
+				schemaLocation="ibanfault.xsd" />
+			<xsd:import namespace="http://gsos.fnt.hu.nl/"
+				schemaLocation="validateibanrequest.xsd" />
+			<xsd:import namespace="http://gsos.fnt.hu.nl/"
+				schemaLocation="validateibanresponse.xsd" />
+		</xsd:schema>
+	</types>
+
+	<message name="createibanRequest">
+		<part name="parameters" element="tns:createIban" />
+	</message>
+
+	<message name="createibanResponse">
+		<part name="parameters" element="tns:ibanResponse" />
+	</message>
+
+	<message name="validateibanRequest">
+		<part name="parameters" element="tns:ibanRequest" />
+	</message>
+
+	<message name="validateibanResponse">
+		<part name="parameters" element="tns:valid" />
+	</message>
+
+	<message name="ibanFault">
+		<part name="fault" element="tns:ibanFault" />
+	</message>
+
+
+
+	<portType name="WS-Interface">
+		<operation name="generateIban">
+			<input message="tns:createibanRequest" />
+			<output message="tns:createibanResponse" />
+			<fault name="fault" message="tns:ibanFault" />
+		</operation>
+		<operation name="validateIban">
+			<input message="tns:validateibanRequest" />
+			<output message="tns:validateibanResponse" />
+			<fault name="fault" message="tns:ibanFault" />
+		</operation>
+
+	</portType>
+
+	<binding name="WS-Binding" type="tns:WS-Interface">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="generateIban">
+			<soap:operation soapAction="" style="document" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</fault>
+		</operation>
+
+		<operation name="validateIban">
+			<soap:operation soapAction="" style="document" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="fault">
+				<soap:fault name="fault" use="literal" />
+			</fault>
+		</operation>
+
+	</binding>
+	<service name="IbanWSService">
+		<documentation>WSDL File for IbanService</documentation>
+		<port name="IbanWSServicePort" binding="tns:WS-Binding">
+			<soap:address location="http://localhost:8181/ws-producer/ws-producer" />
+		</port>
+	</service>
+
+</definitions>

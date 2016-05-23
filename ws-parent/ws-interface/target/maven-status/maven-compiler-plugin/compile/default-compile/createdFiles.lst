@@ -1,0 +1,7 @@
+nl/hu/fnt/gsos/wsinterface/IbanWSService.class
+nl/hu/fnt/gsos/wsinterface/ObjectFactory.class
+nl/hu/fnt/gsos/wsinterface/package-info.class
+nl/hu/fnt/gsos/wsinterface/WSInterface.class
+nl/hu/fnt/gsos/wsinterface/CreateIban.class
+nl/hu/fnt/gsos/wsinterface/IbanFault.class
+nl/hu/fnt/gsos/wsinterface/IbanFault_Exception.class

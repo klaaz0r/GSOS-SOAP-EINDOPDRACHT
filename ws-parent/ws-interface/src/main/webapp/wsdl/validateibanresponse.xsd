@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://gsos.fnt.hu.nl/"
+	targetNamespace="http://gsos.fnt.hu.nl/" elementFormDefault="qualified">
+
+	<element name="valid">
+		<simpleType>
+			<restriction base="integer">
+			</restriction>
+		</simpleType>
+	</element>
+</schema>

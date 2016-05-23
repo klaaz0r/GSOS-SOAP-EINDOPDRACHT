@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://gsos.fnt.hu.nl/"
+	targetNamespace="http://gsos.fnt.hu.nl/" elementFormDefault="qualified">
+
+	<element name="createIban">
+		<complexType>
+			<sequence>
+				<element name="bankcode" type="string" />
+				<element name="rekeningsnummer" type="integer" />
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>
